@@ -268,4 +268,33 @@ def server(input, output, session):
                 variation = np.random.normal(0, 0.05 * beat_interval)
                 next_interval = max(beat_interval + variation, beat_interval * 0.8)
             else:
-                
+                next_interval = beat_interval
+            
+            current_time += next_interval
+            beat_intervals.append(next_interval)
+        
+        fig = create_plotly_figure(
+            x=t,
+            y=ecg_signal,
+            title=f'ECG Signal: {condition.title()}',
+            xlabel='Time (s)',
+            ylabel='Voltage (mV)',
+            color='#E63946'
+        )
+        
+        return ui.HTML(fig.to_html(include_plotlyjs="cdn", full_html=False))
+    
+    @render.text
+    def hr_stats():
+        condition = input.condition()
+        show_hrv = input.show_variability()
+        
+        hr_min, hr_max = HR_RANGES[condition]
+        base_hr = (hr_min + hr_max) / 2
+        
+        if show_hrv:
+            return f"Condition: {condition.title()}\nBase Heart Rate: {base_hr:.0f} bpm\nRange: {hr_min}-{hr_max} bpm\nVariability: Enabled (±5% variation)"
+        else:
+            return f"Condition: {condition.title()}\nBase Heart Rate: {base_hr:.0f} bpm\nRange: {hr_min}-{hr_max} bpm\nVariability: Disabled (constant)"
+    
+app = App(app_ui, server)

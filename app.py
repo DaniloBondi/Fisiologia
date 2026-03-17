@@ -33,18 +33,76 @@ HR_RANGES = {
 }
 
 app_ui = ui.page_navbar(
-    # --- NUOVA PAGINA HOMEPAGE ---
+# --- HOMEPAGE: LEONARDO A SINISTRA, ANIMAZIONI A DESTRA ---
     ui.nav_panel(
         "Home",
         ui.div(
-            ui.h1("Human physiology can be cool", 
-                  style="margin-bottom: 30px; font-weight: 700; color: #2C3E50;"),
+            # Assicuriamoci che il player Lottie sia caricato nell'header della pagina
+            ui.head_content(
+                ui.HTML('<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>')
+            ),
             
-            ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", 
-                   style="max-width: 80%; height: auto; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"),
+            ui.h1(
+                "Human physiology can be cool", 
+                style="margin-bottom: 40px; font-weight: 700; color: #2C3E50;"
+            ),
             
-            ui.p("Teaching materials and oddities curated by Danilo Bondi", 
-                 style="margin-top: 30px; font-size: 1.4rem; font-style: italic; color: #5D6D7E;"),
+            # Container Orizzontale (Sinistra: Immagine | Destra: Animazioni)
+            ui.div(
+                # PARTE SINISTRA: Immagine Leonardo
+                ui.div(
+                    ui.img(
+                        src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", 
+                        style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);"
+                    ),
+                    style="flex: 2; display: flex; align-items: center; justify-content: center; max-width: 600px;"
+                ),
+                
+                # PARTE DESTRA: Colonna di Animazioni
+                ui.div(
+                    # Animazione 1: Health Care
+                    ui.HTML('''
+                        <lottie-player src="https://lottie.host/43f47864-77e8-4660-8481-905183495804/m0eP8nK9zO.json" 
+                        background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></lottie-player>
+                    '''),
+                    # Animazione 2: Brain
+                    ui.HTML('''
+                        <lottie-player src="https://lottie.host/46112d8a-986b-4e4b-8012-005164d14210/pYfC8GfXp3.json" 
+                        background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></lottie-player>
+                    '''),
+                    # Animazione 3: Lung
+                    ui.HTML('''
+                        <lottie-player src="https://lottie.host/5b487e0b-2224-42f0-9118-2e0f06560942/r3Z9uGf8rP.json" 
+                        background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></lottie-player>
+                    '''),
+                    style="""
+                        flex: 1; 
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center; 
+                        justify-content: center; 
+                        gap: 15px;
+                        border-left: 2px solid #f0f0f0;
+                        padding-left: 20px;
+                    """
+                ),
+                
+                style="""
+                    display: flex; 
+                    flex-direction: row; 
+                    align-items: center; 
+                    justify-content: center; 
+                    gap: 40px; 
+                    width: 100%; 
+                    max-width: 1100px;
+                    flex-wrap: nowrap;
+                """
+            ),
+            
+            ui.p(
+                "Teaching materials and oddities curated by Danilo Bondi", 
+                style="margin-top: 40px; font-size: 1.4rem; font-style: italic; color: #5D6D7E;"
+            ),
             
             style="""
                 display: flex; 
@@ -52,8 +110,9 @@ app_ui = ui.page_navbar(
                 align-items: center; 
                 justify-content: center; 
                 text-align: center; 
-                min-height: 80vh; 
-                padding: 20px;
+                min-height: 90vh; 
+                padding: 30px;
+                background-color: #ffffff;
             """
         )
     ),

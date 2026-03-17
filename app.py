@@ -125,37 +125,41 @@ app_ui = ui.page_navbar(
     # -----------------------------
     ui.nav_panel(
         "Action Potential",
-        ui.layout_sidebar(
-            ui.sidebar(
-                ui.input_select(
-                    "tissue_type",
-                    "Select Tissue Type:",
-                    choices={
-                        "cardiac": "Cardiac Muscle",
-                        "neuron": "Neuron",
-                        "skeletal": "Skeletal Muscle"
-                    },
-                    selected="cardiac"
-                ),
-                ui.input_slider(
-                    "duration",
-                    "Time Window (ms):",
-                    min=50,
-                    max=500,
-                    value=300,
-                    step=10
+        ui.navset_card_pill(
+            ui.nav_panel(
+                "Static Comparison",
+                ui.layout_sidebar(
+                    ui.sidebar(
+                        ui.input_select("tissue_type", "Select Tissue Type:", 
+                                       choices={"cardiac": "Cardiac Muscle", "neuron": "Neuron", "skeletal": "Skeletal Muscle"}),
+                        ui.input_slider("duration", "Time Window (ms):", min=50, max=500, value=300, step=10)
+                    ),
+                    ui.card(ui.card_header("Static Waveform"), ui.output_ui("action_potential_plot")),
+                    ui.card(ui.card_header("Description"), ui.output_text("description"))
                 )
             ),
-            ui.card(
-                ui.card_header("Action Potential"),
-                ui.output_ui("action_potential_plot")
-            ),
-            ui.card(
-                ui.card_header("Description"),
-                ui.output_text("description")
+            ui.nav_panel(
+                "Interactive Animation",
+                ui.layout_sidebar(
+                    ui.sidebar(
+                        ui.input_select("stimulus", "Stimulus Potential:", 
+                                       choices={"-60": "-60 mV (Sub-threshold)", "-40": "-40 mV (Above threshold)", "+10": "+10 mV (Above threshold)"}),
+                        ui.input_action_button("play", "Generate Animation", class_="btn-primary w-100")
+                    ),
+                    ui.card(
+                        ui.card_header("Neuronal AP Animation"),
+                        ui.output_ui("animation_plot"),
+                        ui.markdown("""
+                        **Legend:**
+                        - Blue dashed line: Activation Threshold (-55 mV)
+                        - Use the Play/Pause buttons inside the chart to control flow.
+                        """)
+                    )
+                )
             )
         )
     ),
+
     ui.nav_panel(
         "Heart Rate",
         ui.layout_sidebar(
@@ -239,114 +243,107 @@ def generate_cardiac_ap(t):
     v[(t >= 12) & (t < 15)] = 40 - (t[(t >= 12) & (t < 15)] - 12) * 10
     v[(t >= 15) & (t < 210)] = 10
     v[(t >= 210) & (t < 260)] = 10 - (t[(t >= 210) & (t < 260)] - 210) * 2
-    v[t >= 260] = -90
     return v
 
-def generate_neuron_ap(t):
+def generate_neuron_ap_static(t):
     v = np.full_like(t, -70.0)
     v[(t >= 10) & (t < 11)] = -70 + (t[(t >= 10) & (t < 11)] - 10) * 110
     v[(t >= 11) & (t < 13)] = 40 - (t[(t >= 11) & (t < 13)] - 11) * 55
     v[(t >= 13) & (t < 15)] = -70 - (t[(t >= 13) & (t < 15)] - 13) * 10
-    v[t >= 15] = -70
+    return v
+
+def generate_neuron_ap_animated(t, stimulus_potential):
+    v = np.full_like(t, -70.0)
+    if stimulus_potential >= -55:
+        v[(t >= 10) & (t < 11)] = -70 + (t[(t >= 10) & (t < 11)] - 10) * 110
+        v[(t >= 11) & (t < 13)] = 40 - (t[(t >= 11) & (t < 13)] - 11) * 55
+        v[(t >= 13) & (t < 15)] = -70 - (t[(t >= 13) & (t < 15)] - 13) * 10
+    else:
+        v[(t >= 10) & (t < 11)] = -70 + (t[(t >= 10) & (t < 11)] - 10) * 10
+        v[(t >= 11) & (t < 12)] = -60 - (t[(t >= 11) & (t < 12)] - 11) * 10
     return v
 
 def generate_skeletal_ap(t):
     v = np.full_like(t, -90.0)
     v[(t >= 10) & (t < 12)] = -90 + (t[(t >= 10) & (t < 12)] - 10) * 65
     v[(t >= 12) & (t < 15)] = 40 - (t[(t >= 12) & (t < 15)] - 12) * 36.67
-    v[t >= 15] = -90
     return v
 
 def create_plotly_figure(x, y, title, xlabel, ylabel, color='#2E86AB'):
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=x, y=y, mode='lines',
-        line=dict(color=color, width=2),
-        hovertemplate=f'{xlabel}: %{{x:.2f}}<br>{ylabel}: %{{y:.2f}}<extra></extra>'
-    ))
-    fig.add_hline(y=0, line_dash="dash", line_color="gray", opacity=0.5)
-    fig.update_layout(
-        title=dict(text=title, font=dict(size=16, color='#333')),
-        xaxis=dict(title=xlabel, gridcolor='lightgray'),
-        yaxis=dict(title=ylabel, gridcolor='lightgray'),
-        hovermode='x unified',
-        plot_bgcolor='white',
-        height=500
-    )
+    fig = go.Figure(go.Scatter(x=x, y=y, mode='lines', line=dict(color=color, width=2)))
+    fig.update_layout(title=title, xaxis_title=xlabel, yaxis_title=ylabel, plot_bgcolor='white', height=450)
     return fig
 
 def generate_ecg_beat(t_beat):
-    signal = np.zeros_like(t_beat)
-    signal += 0.15 * np.exp(-((t_beat - 0.13) ** 2) / (2 * 0.067 ** 2))
+    signal = 0.15 * np.exp(-((t_beat - 0.13) ** 2) / (2 * 0.067 ** 2))
     signal -= 0.05 * np.exp(-((t_beat - 0.27) ** 2) / (2 * 0.017 ** 2))
     signal += 1.0 * np.exp(-((t_beat - 0.30) ** 2) / (2 * 0.017 ** 2))
     signal -= 0.15 * np.exp(-((t_beat - 0.33) ** 2) / (2 * 0.017 ** 2))
     signal += 0.25 * np.exp(-((t_beat - 0.58) ** 2) / (2 * 0.13 ** 2))
     return signal
 
+
 def server(input, output, session):
+    
+    # 1. Action Potential Statico
     @render.ui
     def action_potential_plot():
         tissue = input.tissue_type()
-        duration = input.duration()
-        t = np.linspace(0, duration, 1000)
-        ap_generators = {
-            "cardiac": generate_cardiac_ap,
-            "neuron": generate_neuron_ap,
-            "skeletal": generate_skeletal_ap
-        }
-        v = ap_generators[tissue](t)
-        fig = create_plotly_figure(
-            x=t, y=v,
-            title=f'Action Potential: {tissue.title()}',
-            xlabel='Time (ms)', ylabel='Membrane Potential (mV)'
-        )
-        fig.update_xaxes(range=[0, duration])
+        t = np.linspace(0, input.duration(), 1000)
+        ap_map = {"cardiac": generate_cardiac_ap, "neuron": generate_neuron_ap_static, "skeletal": generate_skeletal_ap}
+        v = ap_map[tissue](t)
+        fig = create_plotly_figure(t, v, f'Action Potential: {tissue.title()}', 'Time (ms)', 'Membrane Potential (mV)')
         return ui.HTML(fig.to_html(include_plotlyjs="cdn", full_html=False))
 
     @render.text
     def description():
         return TISSUE_DESCRIPTIONS[input.tissue_type()]
 
+    # 2. Action Potential ANIMATO (Nuova Funzione)
+    @render.ui
+    def animation_plot():
+        input.play() # Reattività al pulsante
+        stimulus = int(input.stimulus())
+        t = np.linspace(0, 30, 200)
+        v = generate_neuron_ap_animated(t, stimulus)
+        
+        fig = go.Figure(
+            data=[go.Scatter(x=[t[0]], y=[v[0]], mode="lines", line=dict(width=3, color="#E63946"), name="Potential")],
+            layout=go.Layout(
+                xaxis=dict(range=[0, 30], title="Time (ms)"),
+                yaxis=dict(range=[-100, 60], title="Membrane Potential (mV)"),
+                plot_bgcolor='white',
+                updatemenus=[dict(type="buttons", buttons=[
+                    dict(label="▶ Play", method="animate", args=[None, {"frame": {"duration": 30, "redraw": True}, "fromcurrent": True}]),
+                    dict(label="Pause", method="animate", args=[[None], {"frame": {"duration": 0, "redraw": False}, "mode": "immediate"}])
+                ])]
+            ),
+            frames=[go.Frame(data=[go.Scatter(x=t[:i], y=v[:i])]) for i in range(1, len(t), 3)]
+        )
+        fig.add_hline(y=-55, line_dash="dash", line_color="#2E86AB", annotation_text="Threshold (-55 mV)")
+        return ui.HTML(fig.to_html(include_plotlyjs="cdn", full_html=False))
+
+    # 3. Heart Rate
     @render.ui
     def ecg_plot():
-        condition = input.condition()
-        time_window = input.time_window()
-        show_hrv = input.show_variability()
-        hr_min, hr_max = HR_RANGES[condition]
+        hr_min, hr_max = HR_RANGES[input.condition()]
         base_hr = (hr_min + hr_max) / 2
         beat_interval = 60.0 / base_hr
-        t = np.linspace(0, time_window, int(time_window * 1000))
+        t = np.linspace(0, input.time_window(), int(input.time_window() * 1000))
         ecg_signal = np.zeros_like(t)
-        current_time = 0.5
-        while current_time < time_window - 0.5:
-            beat_duration = 0.6
-            beat_mask = (t >= current_time) & (t < current_time + beat_duration)
-            if np.any(beat_mask):
-                t_beat = (t[beat_mask] - current_time) / beat_duration
-                ecg_signal[beat_mask] += generate_ecg_beat(t_beat)
-            if show_hrv:
-                variation = np.random.normal(0, 0.05 * beat_interval)
-                next_interval = max(beat_interval + variation, beat_interval * 0.8)
-            else:
-                next_interval = beat_interval
-            current_time += next_interval
-        fig = create_plotly_figure(
-            x=t, y=ecg_signal,
-            title=f'ECG Signal: {condition.title()}',
-            xlabel='Time (s)', ylabel='Voltage (mV)', color='#E63946'
-        )
+        curr = 0.5
+        while curr < input.time_window() - 0.5:
+            mask = (t >= curr) & (t < curr + 0.6)
+            if np.any(mask):
+                ecg_signal[mask] += generate_ecg_beat((t[mask] - curr) / 0.6)
+            curr += (beat_interval + np.random.normal(0, 0.05 * beat_interval)) if input.show_variability() else beat_interval
+        
+        fig = create_plotly_figure(t, ecg_signal, "ECG Simulation", "Time (s)", "Voltage (mV)", "#E63946")
         return ui.HTML(fig.to_html(include_plotlyjs="cdn", full_html=False))
 
     @render.text
     def hr_stats():
-        condition = input.condition()
-        show_hrv = input.show_variability()
-        hr_min, hr_max = HR_RANGES[condition]
-        base_hr = (hr_min + hr_max) / 2
-        if show_hrv:
-            return f"Condition: {condition.title()}\nBase Heart Rate: {base_hr:.0f} bpm\nRange: {hr_min}-{hr_max} bpm\nVariability: Enabled (±5% variation)"
-        else:
-            return f"Condition: {condition.title()}\nBase Heart Rate: {base_hr:.0f} bpm\nRange: {hr_min}-{hr_max} bpm\nVariability: Disabled (constant)"
+        hr_min, hr_max = HR_RANGES[input.condition()]
+        return f"Condition: {input.condition().title()}\nRange: {hr_min}-{hr_max} bpm"
 
 app = App(app_ui, server)

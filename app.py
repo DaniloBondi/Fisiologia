@@ -123,12 +123,10 @@ app_ui = ui.page_navbar(
         )
     ),
     # -----------------------------
-    # -----------------------------
     ui.nav_panel(
         "Action Potential",
         ui.layout_sidebar(
             ui.sidebar(
-                ui.h4("Static Comparison"),
                 ui.input_select(
                     "tissue_type",
                     "Select Tissue Type:",
@@ -146,43 +144,15 @@ app_ui = ui.page_navbar(
                     max=500,
                     value=300,
                     step=10
-                ),
-                ui.hr(),
-                ui.h4("Dynamic Simulation"),
-                ui.input_slider(
-                    "frequency",
-                    "Stimulation Frequency (Hz):",
-                    min=1,
-                    max=100,
-                    value=10,
-                    step=1
-                ),
-                ui.input_slider(
-                    "sim_duration",
-                    "Simulation Duration (ms):",
-                    min=50,
-                    max=500,
-                    value=200,
-                    step=10
-                ),
-                ui.input_action_button(
-                    "simulate",
-                    "Start Simulation",
-                    class_="btn-primary"
-                ),
-                ui.output_text("tetanus_warning")
+                )
             ),
             ui.card(
-                ui.card_header("Static Action Potential"),
+                ui.card_header("Action Potential"),
                 ui.output_ui("action_potential_plot")
             ),
             ui.card(
                 ui.card_header("Description"),
                 ui.output_text("description")
-            ),
-            ui.card(
-                ui.card_header("Dynamic Neuronal Action Potential Simulation"),
-                ui.output_ui("dynamic_ap_plot")
             )
         )
     ),
@@ -249,13 +219,13 @@ app_ui = ui.page_navbar(
                 - [Google Gemini](https://gemini.google.com)
                 - [LottieFiles](https://lottiefiles.com)
                 
-                AI is amazing! Thanks to Shiny Assistant and Gemini, even a 'dummy coder' like me managed to build this humble website... Feel free to use it however you like; however, it shall feel free to kill you...
+                AI is amazing! Thanks to Shiny Assistant and Gemini, even a 'dummy coder' like me managed to build this website... Feel free to use it however you like; however, it shall feel free to kill you...
                 """
             )
         )
     ),
     title=ui.tags.span(
-        "Human physiology and beyond",
+        "Physiology Lab",
         style="font-family: 'Aptos', 'Segoe UI', 'Calibri', sans-serif; font-weight: 600;"
     ),
     id="page"

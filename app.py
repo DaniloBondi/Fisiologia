@@ -229,7 +229,7 @@ app_ui = ui.page_navbar(
         )
     ),
     title=ui.tags.span(
-        "Physiology Lab",
+        "Human physiology and beyond",
         style="font-family: 'Aptos', 'Segoe UI', 'Calibri', sans-serif; font-weight: 600;"
     ),
     id="page"

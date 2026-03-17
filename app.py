@@ -33,7 +33,7 @@ HR_RANGES = {
 }
 
 app_ui = ui.page_navbar(
-# --- HOMEPAGE: LEONARDO + 3 DOTLOTTIE (DIMENSIONI SCALATE) ---
+    # --- HOMEPAGE: LEONARDO + 3 DOTLOTTIE (DIMENSIONI SCALATE) ---
     ui.nav_panel(
         "Home",
         ui.div(
@@ -220,17 +220,18 @@ app_ui = ui.page_navbar(
                 - [Google Gemini](https://gemini.google.com)
                 - [LottieFiles](https://lottiefiles.com)
                 
-                AI is amazing! Thanks to Shiny Assistant and Gemini, even a 'dummy coder' like me managed to build this website... Feel free to use it however you like; however, it shall feel free to kill you...
+                AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini, even a 'dummy coder' like me managed to build this website... Feel free to use it however you like; however, it shall feel free to kill you...
                 """
             )
-        ),
-        title=ui.tags.span(
-            "Physiology Lab",
-            style="font-family: 'Aptos', 'Segoe UI', 'Calibri', sans-serif; font-weight: 600;"
-        ),
-        id="page"
-    )
-    
+        )
+    ),
+    title=ui.tags.span(
+        "Physiology Lab",
+        style="font-family: 'Aptos', 'Segoe UI', 'Calibri', sans-serif; font-weight: 600;"
+    ),
+    id="page"
+)
+
 # Funzioni di supporto
 
 def generate_cardiac_ap(t):

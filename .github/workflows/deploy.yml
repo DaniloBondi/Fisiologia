@@ -23,7 +23,7 @@ jobs:
       - name: Export App to static site
         run: |
           # Esporta l'app e include automaticamente la cartella www se presente
-          shinylive export . site --include-www
+          shinylive export . site
 
       - name: Upload to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

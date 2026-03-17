@@ -1,4 +1,4 @@
-ame: Deploy Shinylive App
+name: Deploy Shinylive App
 on:
   push:
     branches: [main]

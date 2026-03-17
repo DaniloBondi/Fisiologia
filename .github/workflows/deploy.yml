@@ -17,12 +17,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          # Dobbiamo installare anche le librerie usate dall'app
-          pip install shinylive shiny numpy plotly 
+          pip install shinylive
 
       - name: Export App to static site
         run: |
-          # Esporta l'app nella cartella 'site'
           shinylive export . site
 
       - name: Upload to GitHub Pages

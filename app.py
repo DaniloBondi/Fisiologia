@@ -33,18 +33,82 @@ HR_RANGES = {
 }
 
 app_ui = ui.page_navbar(
-    # --- NUOVA PAGINA HOMEPAGE ---
+# --- HOMEPAGE: LEONARDO + 3 DOTLOTTIE (DIMENSIONI SCALATE) ---
     ui.nav_panel(
         "Home",
         ui.div(
-            ui.h1("Human physiology can be cool", 
-                  style="margin-bottom: 30px; font-weight: 700; color: #2C3E50;"),
+            ui.head_content(
+                ui.HTML('<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>')
+            ),
             
-            ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", 
-                   style="max-width: 80%; height: auto; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"),
+            ui.h1(
+                "Human physiology can be cool", 
+                style="margin-bottom: 40px; font-weight: 700; color: #2C3E50;"
+            ),
             
-            ui.p("Teaching materials and oddities curated by Danilo Bondi", 
-                 style="margin-top: 30px; font-size: 1.4rem; font-style: italic; color: #5D6D7E;"),
+            # Container Orizzontale
+            ui.div(
+                # SINISTRA: Immagine di Leonardo
+                ui.div(
+                    ui.img(
+                        src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", 
+                        style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);"
+                    ),
+                    style="flex: 2; max-width: 600px; display: flex; align-items: center;"
+                ),
+                
+                # DESTRA: Colonna Animazioni con dimensioni decrescenti
+                ui.div(
+                    # 1. In alto - Grande (160px)
+                    ui.HTML('''
+                        <dotlottie-player 
+                            src="https://lottie.host/3393aace-8cec-48ca-b8d1-8e3c1ac540bf/lqVDiPrtwb.lottie" 
+                            background="transparent" speed="1" style="width: 160px; height: 160px;" loop autoplay>
+                        </dotlottie-player>
+                    '''),
+                    
+                    # 2. In mezzo - Media (130px)
+                    ui.HTML('''
+                        <dotlottie-player 
+                            src="https://lottie.host/43c73917-b4d7-40ae-a7a2-2ecb34516ec7/WbmA9GxsDC.lottie" 
+                            background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay>
+                        </dotlottie-player>
+                    '''),
+                    
+                    # 3. In basso - Piccola (110px)
+                    ui.HTML('''
+                        <dotlottie-player 
+                            src="https://lottie.host/8f3717a3-bed3-43d9-bd71-7d4bb7f398a4/DtlrqrSLwK.lottie" 
+                            background="transparent" speed="1" style="width: 110px; height: 110px;" loop autoplay>
+                        </dotlottie-player>
+                    '''),
+                    
+                    style="""
+                        flex: 1; 
+                        display: flex; 
+                        flex-direction: column; 
+                        justify-content: space-between; 
+                        align-items: center;
+                        padding: 5px 0;
+                    """
+                ),
+                
+                style="""
+                    display: flex; 
+                    flex-direction: row; 
+                    align-items: stretch; 
+                    justify-content: center; 
+                    gap: 40px; 
+                    width: 100%; 
+                    max-width: 1100px;
+                    margin: 0 auto;
+                """
+            ),
+            
+            ui.p(
+                "Teaching materials and oddities curated by Danilo Bondi", 
+                style="margin-top: 50px; font-size: 1.4rem; font-style: italic; color: #5D6D7E;"
+            ),
             
             style="""
                 display: flex; 
@@ -52,8 +116,8 @@ app_ui = ui.page_navbar(
                 align-items: center; 
                 justify-content: center; 
                 text-align: center; 
-                min-height: 80vh; 
-                padding: 20px;
+                min-height: 90vh; 
+                padding: 30px;
             """
         )
     ),

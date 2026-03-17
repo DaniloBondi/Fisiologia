@@ -10,18 +10,24 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+
       - name: Install dependencies
         run: |
-          pip install shinylive
+          # Dobbiamo installare anche le librerie usate dall'app
+          pip install shinylive shiny numpy plotly 
+
       - name: Export App to static site
         run: |
-          # Questo comando trasforma app.py in una cartella 'site' pronta per il web
+          # Esporta l'app nella cartella 'site'
           shinylive export . site
+
       - name: Upload to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
+          publish_branch: gh-pages  # Forza la pubblicazione su questo ramo

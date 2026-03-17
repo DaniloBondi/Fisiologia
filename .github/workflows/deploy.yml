@@ -1,4 +1,4 @@
-name: Deploy Shinylive App
+ame: Deploy Shinylive App
 on:
   push:
     branches: [main]
@@ -17,10 +17,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install shinylive
+          # Installiamo solo lo stretto necessario per l'esportazione
+          pip install shinylive shiny numpy plotly
 
       - name: Export App to static site
         run: |
+          # Esporta l'app e include automaticamente la cartella www se presente
           shinylive export . site
 
       - name: Upload to GitHub Pages
@@ -28,4 +30,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
-          publish_branch: gh-pages  # Forza la pubblicazione su questo ramo
+          publish_branch: gh-pages

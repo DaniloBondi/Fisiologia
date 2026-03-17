@@ -1,4 +1,3 @@
 shiny
 numpy
 plotly
-shinylive

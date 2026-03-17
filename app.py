@@ -123,10 +123,12 @@ app_ui = ui.page_navbar(
         )
     ),
     # -----------------------------
+    # -----------------------------
     ui.nav_panel(
         "Action Potential",
         ui.layout_sidebar(
             ui.sidebar(
+                ui.h4("Static Comparison"),
                 ui.input_select(
                     "tissue_type",
                     "Select Tissue Type:",
@@ -144,15 +146,43 @@ app_ui = ui.page_navbar(
                     max=500,
                     value=300,
                     step=10
-                )
+                ),
+                ui.hr(),
+                ui.h4("Dynamic Simulation"),
+                ui.input_slider(
+                    "frequency",
+                    "Stimulation Frequency (Hz):",
+                    min=1,
+                    max=100,
+                    value=10,
+                    step=1
+                ),
+                ui.input_slider(
+                    "sim_duration",
+                    "Simulation Duration (ms):",
+                    min=50,
+                    max=500,
+                    value=200,
+                    step=10
+                ),
+                ui.input_action_button(
+                    "simulate",
+                    "Start Simulation",
+                    class_="btn-primary"
+                ),
+                ui.output_text("tetanus_warning")
             ),
             ui.card(
-                ui.card_header("Action Potential"),
+                ui.card_header("Static Action Potential"),
                 ui.output_ui("action_potential_plot")
             ),
             ui.card(
                 ui.card_header("Description"),
                 ui.output_text("description")
+            ),
+            ui.card(
+                ui.card_header("Dynamic Neuronal Action Potential Simulation"),
+                ui.output_ui("dynamic_ap_plot")
             )
         )
     ),
@@ -230,7 +260,6 @@ app_ui = ui.page_navbar(
     ),
     id="page"
 )
-
 
 # Funzioni di supporto
 

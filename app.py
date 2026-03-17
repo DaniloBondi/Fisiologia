@@ -40,7 +40,7 @@ app_ui = ui.page_navbar(
             ui.h1("Human physiology can be cool", 
                   style="margin-bottom: 30px; font-weight: 700; color: #2C3E50;"),
             
-            ui.img(src="./Leonardo.png", 
+            ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", 
                    style="max-width: 80%; height: auto; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"),
             
             ui.p("Teaching materials and oddities curated by Danilo Bondi", 

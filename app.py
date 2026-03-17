@@ -219,7 +219,7 @@ app_ui = ui.page_navbar(
                 - [Google Gemini](https://gemini.google.com)
                 - [LottieFiles](https://lottiefiles.com)
                 
-                AI is amazing! Thanks to Shiny Assistant and Gemini, even a 'dummy coder' like me managed to build this website... Feel free to use it however you like; however, it shall feel free to kill you...
+                AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini, even a 'dummy coder' like me managed to build this website... Feel free to use it however you like; however, it shall feel free to kill you...
                 """
             )
         )

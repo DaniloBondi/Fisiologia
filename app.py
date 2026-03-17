@@ -202,12 +202,6 @@ app_ui = ui.page_navbar(
                 """
                 This application simulates action potentials and heart rate patterns in different conditions.
                 
-                ### Features:
-                - **Interactive Graphs**: Hover, zoom, and pan to explore the waveforms
-                - **Multiple Tissue Types**: Compare cardiac muscle, neurons, and skeletal muscle
-                - **Heart Rate Simulation**: View ECG patterns under different physiological conditions
-                - **Heart Rate Variability**: Toggle HRV to see natural variation in heart rhythm
-                
                 ### Pages:
                 
                 **Action Potential**: Simulates action potentials across different tissue types
@@ -218,19 +212,26 @@ app_ui = ui.page_navbar(
                 
                 ---
                 
-                Developed to make human physiology concepts more accessible and engaging.
+                Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone and there's no need to credit the authors. However, should you claim it as your own creation and property, I shall feel free to kill you.
+                
+                ### Credits:
+                - [GitHub](https://github.com)
+                - [Shiny for Python](https://shiny.posit.co/py/)
+                - [Google Gemini](https://gemini.google.com)
+                - [LottieFiles](https://lottiefiles.com)
+                
+                AI is amazing! Thanks to Shiny Assistant and Gemini, even a 'dummy coder' like me managed to build this website... Feel free to use it however you like; however, it shall feel free to kill you...
                 """
             )
-        )
-    ),
-    title=ui.tags.span(
-        "Physiology Lab",
-        style="font-family: 'Aptos', 'Segoe UI', 'Calibri', sans-serif; font-weight: 600;"
-    ),
-    id="page"
-)
-
-# --- Funzioni di supporto (rimaste invariate) ---
+        ),
+        title=ui.tags.span(
+            "Physiology Lab",
+            style="font-family: 'Aptos', 'Segoe UI', 'Calibri', sans-serif; font-weight: 600;"
+        ),
+        id="page"
+    )
+    
+# Funzioni di supporto
 
 def generate_cardiac_ap(t):
     v = np.full_like(t, -90.0)

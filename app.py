@@ -52,9 +52,9 @@ app_ui = ui.page_navbar(
                 ui.div(
                     ui.img(
                         src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", 
-                        style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);"
+                        style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);"
                     ),
-                    style="flex: 2; max-width: 600px; display: flex; align-items: center;"
+                    style="flex: 2; max-width: 600px; display: flex; align-items: center; justify-content: center;"
                 ),
                 
                 # DESTRA: Colonna Animazioni con dimensioni decrescenti
@@ -89,14 +89,15 @@ app_ui = ui.page_navbar(
                         flex-direction: column; 
                         justify-content: space-between; 
                         align-items: center;
-                        padding: 5px 0;
+                        padding: 0;
+                        gap: 10px;
                     """
                 ),
                 
                 style="""
                     display: flex; 
                     flex-direction: row; 
-                    align-items: stretch; 
+                    align-items: center; 
                     justify-content: center; 
                     gap: 40px; 
                     width: 100%; 
@@ -204,11 +205,9 @@ app_ui = ui.page_navbar(
                 
                 ### Pages:
                 
-                **Action Potential**: Simulates action potentials across different tissue types
-                with characteristic waveform shapes and durations.
+                **Action Potential**: Simulates action potentials across different tissue types with characteristic waveform shapes and durations.
                 
-                **Heart Rate**: Displays simulated ECG signals showing heart rate patterns
-                during rest, exercise, stress, and sleep conditions.
+                **Heart Rate**: Displays simulated ECG signals showing heart rate patterns during rest, exercise, stress, and sleep conditions.
                 
                 ---
                 
@@ -220,17 +219,18 @@ app_ui = ui.page_navbar(
                 - [Google Gemini](https://gemini.google.com)
                 - [LottieFiles](https://lottiefiles.com)
                 
-                AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini, even a 'dummy coder' like me managed to build this website... Feel free to use it however you like; however, it shall feel free to kill you...
+                AI is amazing! Thanks to Shiny Assistant and Gemini, even a 'dummy coder' like me managed to build this humble website... Feel free to use it however you like; however, it shall feel free to kill you...
                 """
             )
         )
     ),
     title=ui.tags.span(
-        "Physiology Lab",
+        "Human physiology and beyond",
         style="font-family: 'Aptos', 'Segoe UI', 'Calibri', sans-serif; font-weight: 600;"
     ),
     id="page"
 )
+
 
 # Funzioni di supporto
 

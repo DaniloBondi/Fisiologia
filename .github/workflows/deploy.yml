@@ -24,6 +24,7 @@ jobs:
         run: |
           # Esporta l'app e include automaticamente la cartella www se presente
           shinylive export . site
+          cp Leonardo.png site/
 
       - name: Upload to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

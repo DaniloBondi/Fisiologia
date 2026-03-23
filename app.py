@@ -25,13 +25,6 @@ TISSUE_DESCRIPTIONS = {
     )
 }
 
-HR_RANGES = {
-    "resting": (60, 80),
-    "exercise": (120, 150),
-    "stress": (90, 110),
-    "sleep": (40, 60)
-}
-
 app_ui = ui.page_navbar(
     # --- HOMEPAGE: LEONARDO + 3 DOTLOTTIE (DIMENSIONI SCALATE) ---
     ui.nav_panel(
@@ -164,16 +157,21 @@ app_ui = ui.page_navbar(
         "Heart Rate",
         ui.layout_sidebar(
             ui.sidebar(
-                ui.input_select(
-                    "condition",
-                    "Select Condition:",
-                    choices={
-                        "resting": "Resting (60-80 bpm)",
-                        "exercise": "Exercise (120-150 bpm)",
-                        "stress": "Stress/Anxiety (90-110 bpm)",
-                        "sleep": "Sleep (40-60 bpm)"
-                    },
-                    selected="resting"
+                ui.input_slider(
+                    "heart_rate",
+                    "Heart Rate (bpm):",
+                    min=30,
+                    max=230,
+                    value=60,
+                    step=1
+                ),
+                ui.input_slider(
+                    "hrv_sdnn",
+                    "Heart Rate Variability - SDNN (ms):",
+                    min=0,
+                    max=100,
+                    value=40,
+                    step=1
                 ),
                 ui.input_slider(
                     "time_window",
@@ -182,11 +180,6 @@ app_ui = ui.page_navbar(
                     max=30,
                     value=10,
                     step=5
-                ),
-                ui.input_checkbox(
-                    "show_variability",
-                    "Show Heart Rate Variability",
-                    value=True
                 )
             ),
             ui.card(
@@ -211,7 +204,7 @@ app_ui = ui.page_navbar(
                 
                 **Action Potential**: Simulates action potentials across different tissue types with characteristic waveform shapes and durations.
                 
-                **Heart Rate**: Displays simulated ECG signals showing heart rate patterns during rest, exercise, stress, and sleep conditions.
+                **Heart Rate**: Displays simulated ECG signals showing heart rate patterns with customizable heart rate and heart rate variability (SDNN).
                 
                 ---
                 
@@ -299,7 +292,7 @@ def server(input, output, session):
     def description():
         return TISSUE_DESCRIPTIONS[input.tissue_type()]
 
-    # 2. Action Potential ANIMATO (Nuova Funzione)
+    # 2. Action Potential ANIMATO
     @render.ui
     def animation_plot():
         input.play() # Reattività al pulsante
@@ -323,27 +316,35 @@ def server(input, output, session):
         fig.add_hline(y=-55, line_dash="dash", line_color="#2E86AB", annotation_text="Threshold (-55 mV)")
         return ui.HTML(fig.to_html(include_plotlyjs="cdn", full_html=False))
 
-    # 3. Heart Rate
+    # 3. Heart Rate - Updated to use exact HR and HRV (SDNN)
     @render.ui
     def ecg_plot():
-        hr_min, hr_max = HR_RANGES[input.condition()]
-        base_hr = (hr_min + hr_max) / 2
-        beat_interval = 60.0 / base_hr
+        hr = input.heart_rate()
+        sdnn = input.hrv_sdnn() / 1000.0  # Convert from ms to seconds
+        
+        # Calculate mean beat interval from heart rate
+        mean_interval = 60.0 / hr
+        
         t = np.linspace(0, input.time_window(), int(input.time_window() * 1000))
         ecg_signal = np.zeros_like(t)
+        
         curr = 0.5
         while curr < input.time_window() - 0.5:
             mask = (t >= curr) & (t < curr + 0.6)
             if np.any(mask):
                 ecg_signal[mask] += generate_ecg_beat((t[mask] - curr) / 0.6)
-            curr += (beat_interval + np.random.normal(0, 0.05 * beat_interval)) if input.show_variability() else beat_interval
+            
+            # Add variability based on SDNN
+            interval = mean_interval + np.random.normal(0, sdnn)
+            curr += max(interval, 0.2)  # Ensure minimum interval
         
         fig = create_plotly_figure(t, ecg_signal, "ECG Simulation", "Time (s)", "Voltage (mV)", "#E63946")
         return ui.HTML(fig.to_html(include_plotlyjs="cdn", full_html=False))
 
     @render.text
     def hr_stats():
-        hr_min, hr_max = HR_RANGES[input.condition()]
-        return f"Condition: {input.condition().title()}\nRange: {hr_min}-{hr_max} bpm"
+        hr = input.heart_rate()
+        sdnn = input.hrv_sdnn()
+        return f"Heart Rate: {hr} bpm\nHRV (SDNN): {sdnn} ms\nMean RR Interval: {60000/hr:.0f} ms"
 
 app = App(app_ui, server)

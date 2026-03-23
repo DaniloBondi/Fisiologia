@@ -162,15 +162,15 @@ app_ui = ui.page_navbar(
                     "Heart Rate (bpm):",
                     min=30,
                     max=230,
-                    value=60,
+                    value=70,
                     step=1
                 ),
                 ui.input_slider(
                     "hrv_sdnn",
                     "Heart Rate Variability - SDNN (ms):",
-                    min=0,
+                    min=10,
                     max=100,
-                    value=40,
+                    value=50,
                     step=1
                 ),
                 ui.input_slider(
@@ -192,6 +192,47 @@ app_ui = ui.page_navbar(
             )
         )
     ),
+    
+    ui.nav_panel(
+        "Ventilation",
+        ui.layout_sidebar(
+            ui.sidebar(
+                ui.input_slider(
+                    "respiratory_rate",
+                    "Respiratory Frequency (bpm):",
+                    min=0,
+                    max=70,
+                    value=15,
+                    step=1
+                ),
+                ui.input_slider(
+                    "tidal_volume",
+                    "Tidal Volume (L):",
+                    min=0,
+                    max=3,
+                    value=0.5,
+                    step=0.05
+                ),
+                ui.input_slider(
+                    "time_window_vent",
+                    "Time Window (seconds):",
+                    min=10,
+                    max=60,
+                    value=30,
+                    step=5
+                )
+            ),
+            ui.card(
+                ui.card_header("Respiration Signal"),
+                ui.output_ui("ventilation_plot")
+            ),
+            ui.card(
+                ui.card_header("Ventilation Statistics"),
+                ui.output_text("ventilation_stats")
+            )
+        )
+    ),
+    
     ui.nav_panel(
         "About",
         ui.card(
@@ -205,6 +246,8 @@ app_ui = ui.page_navbar(
                 **Action Potential**: Simulates action potentials across different tissue types with characteristic waveform shapes and durations.
                 
                 **Heart Rate**: Displays simulated ECG signals showing heart rate patterns with customizable heart rate and heart rate variability (SDNN).
+                
+                **Ventilation**: Simulates respiratory signals with adjustable respiratory frequency and tidal volume.
                 
                 ---
                 
@@ -274,6 +317,17 @@ def generate_ecg_beat(t_beat):
     signal -= 0.15 * np.exp(-((t_beat - 0.33) ** 2) / (2 * 0.017 ** 2))
     signal += 0.25 * np.exp(-((t_beat - 0.58) ** 2) / (2 * 0.13 ** 2))
     return signal
+
+def generate_respiration_cycle(t_cycle, tidal_volume):
+    """Generate a single respiration cycle using a sinusoidal pattern
+    t_cycle: normalized time from 0 to 1 for one breath cycle
+    tidal_volume: volume in liters
+    """
+    # Convert tidal volume from L to mL
+    tv_ml = tidal_volume * 1000
+    # Use sine wave for smooth inspiration and expiration
+    volume = (tv_ml / 2) * (1 - np.cos(2 * np.pi * t_cycle))
+    return volume
 
 
 def server(input, output, session):
@@ -346,5 +400,41 @@ def server(input, output, session):
         hr = input.heart_rate()
         sdnn = input.hrv_sdnn()
         return f"Heart Rate: {hr} bpm\nHRV (SDNN): {sdnn} ms\nMean RR Interval: {60000/hr:.0f} ms"
+
+    # 4. Ventilation
+    @render.ui
+    def ventilation_plot():
+        rf = input.respiratory_rate()  # breaths per minute
+        tv = input.tidal_volume()  # liters
+        time_window = input.time_window_vent()  # seconds
+        
+        # If respiratory rate is 0, show flat line
+        if rf == 0:
+            t = np.linspace(0, time_window, 1000)
+            volume = np.zeros_like(t)
+        else:
+            # Calculate breath period in seconds
+            breath_period = 60.0 / rf
+            
+            # Generate time array
+            t = np.linspace(0, time_window, int(time_window * 100))
+            volume = np.zeros_like(t)
+            
+            # Generate respiration cycles
+            for breath_start in np.arange(0, time_window, breath_period):
+                mask = (t >= breath_start) & (t < breath_start + breath_period)
+                if np.any(mask):
+                    t_normalized = (t[mask] - breath_start) / breath_period
+                    volume[mask] = generate_respiration_cycle(t_normalized, tv)
+        
+        fig = create_plotly_figure(t, volume, "Respiration Signal", "Time (s)", "Volume (mL)", "#27AE60")
+        return ui.HTML(fig.to_html(include_plotlyjs="cdn", full_html=False))
+
+    @render.text
+    def ventilation_stats():
+        rf = input.respiratory_rate()
+        tv = input.tidal_volume()
+        minute_ventilation = rf * tv  # L/min
+        return f"Respiratory Frequency: {rf} bpm\nTidal Volume: {tv:.2f} L\nMinute Ventilation: {minute_ventilation:.2f} L/min"
 
 app = App(app_ui, server)

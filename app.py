@@ -197,13 +197,15 @@ app_ui = ui.page_navbar(
         "Ventilation",
         ui.layout_sidebar(
             ui.sidebar(
-                ui.input_slider(
-                    "respiratory_rate",
-                    "Respiratory Frequency (bpm):",
-                    min=0,
-                    max=70,
-                    value=15,
-                    step=1
+                ui.div(
+                    ui.input_slider(
+                        "respiratory_rate",
+                        ui.HTML("Respiratory Frequency (bpm): <span style='font-size: 0.85em; color: #27AE60;'>12-20 = resting values</span>"),
+                        min=0,
+                        max=70,
+                        value=15,
+                        step=1
+                    )
                 ),
                 ui.input_slider(
                     "tidal_volume",
@@ -427,7 +429,16 @@ def server(input, output, session):
                     t_normalized = (t[mask] - breath_start) / breath_period
                     volume[mask] = generate_respiration_cycle(t_normalized, tv)
         
-        fig = create_plotly_figure(t, volume, "Respiration Signal", "Time (s)", "Volume (mL)", "#27AE60")
+        fig = go.Figure(go.Scatter(x=t, y=volume, mode='lines', line=dict(color="#27AE60", width=2)))
+        fig.update_layout(
+            title="Respiration Signal",
+            xaxis_title="Time (s)",
+            yaxis_title="Volume (mL)",
+            yaxis=dict(range=[0, 3000]),
+            plot_bgcolor='white',
+            height=450
+        )
+        fig.add_hline(y=500, line_dash="dot", line_color="#95A5A6")
         return ui.HTML(fig.to_html(include_plotlyjs="cdn", full_html=False))
 
     @render.text

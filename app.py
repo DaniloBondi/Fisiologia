@@ -123,12 +123,11 @@ app_ui = ui.page_navbar(
 - [OpenAI ChatGPT](https://chatgpt.com)
 - [LottieFiles](https://lottiefiles.com)
 
-AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini for making this possible.
                         """),
                         style="flex: 1; padding-right: 30px;"
                     ),
                     ui.div(
-                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 350px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
+                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 600px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
                         style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;"
                     ),
                     style="display: flex; flex-direction: row; align-items: flex-start; gap: 30px; width: 100%; margin-bottom: 40px;"
@@ -136,7 +135,8 @@ AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini for making 
                 # Bottom section: Application description and Pages
                 ui.div(
                     ui.markdown(r"""
-This application simulates action potentials and heart rate patterns in different conditions.
+
+---
 
 ### Pages:
 - **Action Potential**: Simulates action potentials across different tissue types.

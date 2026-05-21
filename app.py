@@ -41,9 +41,9 @@ app_ui = ui.page_navbar(
                     style="flex: 2; max-width: 600px; display: flex; align-items: center; justify-content: center;"
                 ),
                 ui.div(
-                    ui.HTML('<dotlottie-player src="https://lottie.host/3393aace-8cec-48ca-b8d1-8e3c1ac540bf/lqVDiPrtwb.lottie" background="transparent" speed="1" style="width: 160px; height: 160px;" loop></dotlottie-player>'),
-                    ui.HTML('<dotlottie-player src="https://lottie.host/43c73917-b4d7-40ae-a7a2-2ecb34516ec7/WbmA9GxsDC.lottie" background="transparent" speed="1" style="width: 130px; height: 130px;" loop></dotlottie-player>'),
-                    ui.HTML('<dotlottie-player src="https://lottie.host/8f3717a3-bed3-43d9-bd71-7d4bb7f398a4/DtlrqrSLwK.lottie" background="transparent" speed="1" style="width: 110px; height: 110px;" loop></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://lottie.host/3393aace-8cec-48ca-b8d1-8e3c1ac540bf/lqVDiPrtwb.lottie" background="transparent" speed="1" autoplay loop style="width: 160px; height: 160px;"></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://lottie.host/43c73917-b4d7-40ae-a7a2-2ecb34516ec7/WbmA9GxsDC.lottie" background="transparent" speed="1" autoplay loop style="width: 130px; height: 130px;"></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://lottie.host/8f3717a3-bed3-43d9-bd71-7d4bb7f398a4/DtlrqrSLwK.lottie" background="transparent" speed="1" autoplay loop style="width: 110px; height: 110px;"></dotlottie-player>'),
                     style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 0; gap: 10px;"
                 ),
                 style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 40px; width: 100%; max-width: 1100px; margin: 0 auto;"

@@ -128,16 +128,13 @@ app_ui = ui.page_navbar(
                         
                         ---
                         
-                        Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone.
-                        
                         ### Credits:
                         - [GitHub](https://github.com)
                         - [Shiny for Python](https://shiny.posit.co/py/)
                         - [Google Gemini](https://gemini.google.com)
+                        - [OpenAI ChatGPT](https://chatgpt.com)
                         - [LottieFiles](https://lottiefiles.com)
-                        
-                        AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini for making this possible.
-                        """
+                                            
                     ),
                     style="flex: 1; padding-right: 20px;"
                 ),

@@ -37,13 +37,13 @@ app_ui = ui.page_navbar(
             ui.h1("Human physiology can be cool", style="margin-bottom: 40px; font-weight: 700; color: #2C3E50;"),
             ui.div(
                 ui.div(
-                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);"),
+                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.[...]
                     style="flex: 2; max-width: 600px; display: flex; align-items: center; justify-content: center;"
                 ),
                 ui.div(
-                    ui.HTML('<dotlottie-player src="https://lottie.host/3393aace-8cec-48ca-b8d1-8e3c1ac540bf/lqVDiPrtwb.lottie" background="transparent" speed="1" style="width: 160px; height: 160px;" loop autoplay></dotlottie-player>'),
-                    ui.HTML('<dotlottie-player src="https://lottie.host/43c73917-b4d7-40ae-a7a2-2ecb34516ec7/WbmA9GxsDC.lottie" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></dotlottie-player>'),
-                    ui.HTML('<dotlottie-player src="https://lottie.host/8f3717a3-bed3-43d9-bd71-7d4bb7f398a4/DtlrqrSLwK.lottie" background="transparent" speed="1" style="width: 110px; height: 110px;" loop autoplay></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://lottie.host/3393aace-8cec-48ca-b8d1-8e3c1ac540bf/lqVDiPrtwb.lottie" background="transparent" speed="1" style="width: 160px; height: 160px;" [...]
+                    ui.HTML('<dotlottie-player src="https://lottie.host/43c73917-b4d7-40ae-a7a2-2ecb34516ec7/WbmA9GxsDC.lottie" background="transparent" speed="1" style="width: 130px; height: 130px;" [...]
+                    ui.HTML('<dotlottie-player src="https://lottie.host/8f3717a3-bed3-43d9-bd71-7d4bb7f398a4/DtlrqrSLwK.lottie" background="transparent" speed="1" style="width: 110px; height: 110px;" [...]
                     style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 0; gap: 10px;"
                 ),
                 style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 40px; width: 100%; max-width: 1100px; margin: 0 auto;"
@@ -98,12 +98,47 @@ app_ui = ui.page_navbar(
         "Ventilation",
         ui.layout_sidebar(
             ui.sidebar(
-                ui.input_slider("respiratory_rate", ui.HTML("Respiratory Frequency (bpm): <span style='font-size: 0.85em; color: #27AE60;'>12-20 = resting values</span>"), min=0, max=70, value=15, step=1),
+                ui.input_slider("respiratory_rate", ui.HTML("Respiratory Frequency (bpm): <span style='font-size: 0.85em; color: #27AE60;'>12-20 = resting values</span>"), min=0, max=70, value=15, ste[...]
                 ui.input_slider("tidal_volume", "Tidal Volume (L):", min=0, max=3, value=0.5, step=0.05),
                 ui.input_slider("time_window_vent", "Time Window (seconds):", min=10, max=60, value=30, step=5)
             ),
             ui.card(ui.card_header("Respiration Signal"), ui.output_ui("ventilation_plot")),
             ui.card(ui.card_header("Ventilation Statistics"), ui.output_text("ventilation_stats"))
+        )
+    ),
+    
+    ui.nav_panel(
+        "Running Simulation",
+        ui.card(
+            ui.card_header("Running Mechanics & Metabolism Simulator"),
+            ui.div(
+                # Top row: Leonardo image and link
+                ui.div(
+                    ui.div(
+                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 80%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); margin-bottom: 20px;"),
+                        ui.a(
+                            "Visit the Running Simulation App",
+                            href="https://tinyurl.com/mwzkrya8",
+                            target="_blank",
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: background-color 0.3s ease;"
+                        ),
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
+                    ),
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-bottom: 30px;"
+                ),
+                # Description text
+                ui.div(
+                    ui.p(
+                        "The link pushes you to a web application built using Shiny for Python: it  serves as an interactive simulator for academic purposes to estimate and analyze the relationship between the mechanical work and the metabolic cost of treadmill running.\n"
+                        "The app features a Sidebar Layout that allows you to manipulate parameters across distinct physiological and biomechanical domains via the sidebar.\n"
+                        "Enjoy it!",
+                        style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
+                    ),
+                    style="width: 100%; padding: 20px; background-color: #F5F5F5; border-radius: 10px; border-left: 4px solid #27AE60;"
+                ),
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; width: 100%;"
+            ),
+            style="padding: 40px; min-height: 80vh;"
         )
     ),
     
@@ -127,7 +162,7 @@ app_ui = ui.page_navbar(
                         style="flex: 1; padding-right: 30px;"
                     ),
                     ui.div(
-                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 800px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
+                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 800px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2[...]
                         style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;"
                     ),
                     style="display: flex; flex-direction: row; align-items: flex-start; gap: 30px; width: 100%; margin-bottom: 40px;"

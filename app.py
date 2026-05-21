@@ -115,7 +115,7 @@ app_ui = ui.page_navbar(
                 # Top row: Leonardo image and link
                 ui.div(
                     ui.div(
-                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 80%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); margin-bottom: 20px;"),
+                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/QRcode_treadmill_model.png", style="width: 50%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); margin-bottom: 20px;"),
                         ui.a(
                             "Visit the Running Simulation App",
                             href="https://tinyurl.com/mwzkrya8",

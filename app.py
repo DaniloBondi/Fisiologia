@@ -111,31 +111,41 @@ app_ui = ui.page_navbar(
         "About",
         ui.card(
             ui.card_header("About This Application"),
-            ui.markdown(r"""
-                This application simulates action potentials and heart rate patterns in different conditions.
-                
-                ### Pages:
-                - **Action Potential**: Simulates action potentials across different tissue types.
-                - **Heart Rate**: Displays simulated ECG signals showing heart rate patterns with customizable heart rate and heart rate variability (SDNN).
-                
-                In this model, **RMSSD** is derived as a function of **SDNN**, assuming a stationary first-order autoregressive process with **r** set by default to **0.80**, according to the following analytical relationship:
-                
-                $$RMSSD \approx \sqrt{2 \cdot SDNN^2 \cdot (1 - r_1)}$$
-                
-                - **Ventilation**: Simulates respiratory signals.
-                
-                ---
-                
-                Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone and there's no need to credit the authors. However, should you claim it as your own creation and property, I shall feel free to kill you.
-                
-                ### Credits:
-                - [GitHub](https://github.com)
-                - [Shiny for Python](https://shiny.posit.co/py/)
-                - [Google Gemini](https://gemini.google.com)
-                - [LottieFiles](https://lottiefiles.com)
-                
-                AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini, even a 'dummy coder' like me managed to build this website... Feel free to use it however you like; however, it shall feel free to kill you...
-                """
+            ui.div(
+                ui.div(
+                    ui.markdown(r"""
+                        This application simulates action potentials and heart rate patterns in different conditions.
+                        
+                        ### Pages:
+                        - **Action Potential**: Simulates action potentials across different tissue types.
+                        - **Heart Rate**: Displays simulated ECG signals showing heart rate patterns with customizable heart rate and heart rate variability (SDNN).
+                        
+                        In this model, **RMSSD** is derived as a function of **SDNN**, assuming a stationary first-order autoregressive process with **r** set by default to **0.80**, according to the following formula:
+                        
+                        $$RMSSD \approx \sqrt{2 \cdot SDNN^2 \cdot (1 - r_1)}$$
+                        
+                        - **Ventilation**: Simulates respiratory signals.
+                        
+                        ---
+                        
+                        Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone and there's no need to credit the authors.
+                        
+                        ### Credits:
+                        - [GitHub](https://github.com)
+                        - [Shiny for Python](https://shiny.posit.co/py/)
+                        - [Google Gemini](https://gemini.google.com)
+                        - [LottieFiles](https://lottiefiles.com)
+                        
+                        AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini for making this possible.
+                        """
+                    ),
+                    style="flex: 1; padding-right: 20px;"
+                ),
+                ui.div(
+                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 100%; max-width: 300px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"),
+                    style="flex: 1; display: flex; align-items: center; justify-content: center;"
+                ),
+                style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 20px; width: 100%;"
             )
         )
     ),

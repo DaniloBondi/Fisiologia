@@ -37,7 +37,7 @@ app_ui = ui.page_navbar(
             ui.h1("Human physiology can be cool", style="margin-bottom: 40px; font-weight: 700; color: #2C3E50;"),
             ui.div(
                 ui.div(
-                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);"),
+                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);"),
                     style="flex: 2; max-width: 600px; display: flex; align-items: center; justify-content: center;"
                 ),
                 ui.div(
@@ -112,37 +112,49 @@ app_ui = ui.page_navbar(
         ui.card(
             ui.card_header("About This Application"),
             ui.div(
+                # Top row: Credits and large AI.png image
+                ui.div(
+                    ui.div(
+                        ui.markdown(r"""
+### Credits:
+- [GitHub](https://github.com)
+- [Shiny for Python](https://shiny.posit.co/py/)
+- [Google Gemini](https://gemini.google.com)
+- [OpenAI ChatGPT](https://chatgpt.com)
+- [LottieFiles](https://lottiefiles.com)
+
+AI is amazing! Thanks to Shiny Assistant, GitHub Copilot, and Gemini for making this possible.
+                        """),
+                        style="flex: 1; padding-right: 30px;"
+                    ),
+                    ui.div(
+                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 350px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
+                        style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;"
+                    ),
+                    style="display: flex; flex-direction: row; align-items: flex-start; gap: 30px; width: 100%; margin-bottom: 40px;"
+                ),
+                # Bottom section: Application description and Pages
                 ui.div(
                     ui.markdown(r"""
-                        This application simulates action potentials and heart rate patterns in different conditions.
-                        
-                        ### Pages:
-                        - **Action Potential**: Simulates action potentials across different tissue types.
-                        - **Heart Rate**: Displays simulated ECG signals showing heart rate patterns with customizable heart rate and heart rate variability (SDNN).
-                        
-                        In this model, **RMSSD** is derived as a function of **SDNN**, assuming a stationary first-order autoregressive process with **r** set by default to **0.80**, according to the following formula:
-                        
-                        $$RMSSD \approx \sqrt{2 \cdot SDNN^2 \cdot (1 - r_1)}$$
-                        
-                        - **Ventilation**: Simulates respiratory signals.
-                        
-                        ---
-                        
-                        ### Credits:
-                        - [GitHub](https://github.com)
-                        - [Shiny for Python](https://shiny.posit.co/py/)
-                        - [Google Gemini](https://gemini.google.com)
-                        - [OpenAI ChatGPT](https://chatgpt.com)
-                        - [LottieFiles](https://lottiefiles.com)
-                                            
+This application simulates action potentials and heart rate patterns in different conditions.
+
+### Pages:
+- **Action Potential**: Simulates action potentials across different tissue types.
+- **Heart Rate**: Displays simulated ECG signals showing heart rate patterns with customizable heart rate and heart rate variability (SDNN).
+
+In this model, **RMSSD** is derived as a function of **SDNN**, assuming a stationary first-order autoregressive process with **r** set by default to **0.80**, according to the literature.
+
+$$RMSSD \approx \sqrt{2 \cdot SDNN^2 \cdot (1 - r_1)}$$
+
+- **Ventilation**: Simulates respiratory signals.
+
+---
+
+Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone.
                     ),
-                    style="flex: 1; padding-right: 20px;"
+                    style="width: 100%;"
                 ),
-                ui.div(
-                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 200px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
-                    style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;"
-                ),
-                style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px; width: 100%;"
+                style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px; width: 100%;"
             )
         )
     ),

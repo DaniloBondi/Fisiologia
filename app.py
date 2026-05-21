@@ -37,7 +37,7 @@ app_ui = ui.page_navbar(
             ui.h1("Human physiology can be cool", style="margin-bottom: 40px; font-weight: 700; color: #2C3E50;"),
             ui.div(
                 ui.div(
-                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);"),
+                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);"),
                     style="flex: 2; max-width: 600px; display: flex; align-items: center; justify-content: center;"
                 ),
                 ui.div(
@@ -128,7 +128,7 @@ app_ui = ui.page_navbar(
                         
                         ---
                         
-                        Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone and there's no need to credit the authors.
+                        Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone.
                         
                         ### Credits:
                         - [GitHub](https://github.com)
@@ -142,10 +142,10 @@ app_ui = ui.page_navbar(
                     style="flex: 1; padding-right: 20px;"
                 ),
                 ui.div(
-                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 100%; max-width: 300px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"),
-                    style="flex: 1; display: flex; align-items: center; justify-content: center;"
+                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 200px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
+                    style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;"
                 ),
-                style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 20px; width: 100%;"
+                style="display: flex; flex-direction: row; align-items: flex-start; gap: 20px; width: 100%;"
             )
         )
     ),

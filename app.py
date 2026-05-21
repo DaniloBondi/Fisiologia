@@ -37,7 +37,7 @@ app_ui = ui.page_navbar(
             ui.h1("Human physiology can be cool", style="margin-bottom: 40px; font-weight: 700; color: #2C3E50;"),
             ui.div(
                 ui.div(
-                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);"),
+                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);"),
                     style="flex: 2; max-width: 600px; display: flex; align-items: center; justify-content: center;"
                 ),
                 ui.div(
@@ -151,7 +151,7 @@ $$RMSSD \approx \sqrt{2 \cdot SDNN^2 \cdot (1 - r_1)}$$
 ---
 
 Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone.
-                    ),
+                    """),
                     style="width: 100%;"
                 ),
                 style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px; width: 100%;"

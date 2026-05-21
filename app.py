@@ -127,7 +127,7 @@ app_ui = ui.page_navbar(
                         style="flex: 1; padding-right: 30px;"
                     ),
                     ui.div(
-                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 600px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
+                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 800px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
                         style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;"
                     ),
                     style="display: flex; flex-direction: row; align-items: flex-start; gap: 30px; width: 100%; margin-bottom: 40px;"
@@ -150,7 +150,7 @@ $$RMSSD \approx \sqrt{2 \cdot SDNN^2 \cdot (1 - r_1)}$$
 
 ---
 
-Developed to make human physiology concepts more accessible and engaging. Feel free to use this material however you like; it belongs to everyone.
+Developed and curated by Danilo Bondi... and AI
                     """),
                     style="width: 100%;"
                 ),

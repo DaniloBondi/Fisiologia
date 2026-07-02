@@ -41,9 +41,9 @@ app_ui = ui.page_navbar(
                     style="flex: 2; max-width: 600px; display: flex; align-items: center; justify-content: center;"
                 ),
                 ui.div(
-                    ui.HTML('<dotlottie-player src="lung.lottie" background="transparent" speed="1" autoplay loop style="width: 160px; height: auto;"></dotlottie-player>'),
-                    ui.HTML('<dotlottie-player src="Health care.lottie" background="transparent" speed="1" autoplay loop style="width: 130px; height: auto;"></dotlottie-player>'),
-                    ui.HTML('<dotlottie-player src="working brain.lottie" background="transparent" speed="1" autoplay loop style="width: 110px; height: auto;"></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/lung.lottie" background="transparent" speed="1" autoplay loop style="width: 160px; height: auto;"></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Health care.lottie" background="transparent" speed="1" autoplay loop style="width: 130px; height: auto;"></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/working brain.lottie" background="transparent" speed="1" autoplay loop style="width: 110px; height: auto;"></dotlottie-player>'),
                     style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 0; gap: 10px;"
                 ),
                 style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 40px; width: 100%; max-width: 1100px; margin: 0 auto;"
@@ -114,7 +114,7 @@ app_ui = ui.page_navbar(
             ui.div(
                 ui.div(
                     ui.div(
-                        ui.HTML('<dotlottie-player src="Marathon.lottie" background="transparent" speed="1" autoplay loop style="width: 500px; height: auto;"></dotlottie-player>'),
+                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Marathon.lottie" background="transparent" speed="1" autoplay loop style="width: 500px; height: auto;"></dotlottie-player>'),
                         ui.a(
                             "Visit the Running simulation app",
                             href="https://danilobondi.github.io/TreadmillRunSimulator",
@@ -148,7 +148,7 @@ app_ui = ui.page_navbar(
             ui.div(
                 ui.div(
                     ui.div(
-                        ui.HTML('<dotlottie-player src="Walking robot.lottie" background="transparent" speed="1" autoplay loop style="width: 500px; height: auto;"></dotlottie-player>'),
+                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Walking robot.lottie" background="transparent" speed="1" autoplay loop style="width: 500px; height: auto;"></dotlottie-player>'),
                         ui.a(
                             "Visit the Running simulation app",
                             href="https://danilobondi.github.io/GaitAnalysis",

@@ -148,7 +148,7 @@ app_ui = ui.page_navbar(
             ui.div(
                 ui.div(
                     ui.div(
-                        ui.HTML('<dotlottie-player src="Marathon.lottie" background="transparent" speed="1" autoplay loop style="width: 500px; height: auto;"></dotlottie-player>'),
+                        ui.HTML('<dotlottie-player src="Walking robot.lottie" background="transparent" speed="1" autoplay loop style="width: 500px; height: auto;"></dotlottie-player>'),
                         ui.a(
                             "Visit the Running simulation app",
                             href="https://danilobondi.github.io/GaitAnalysis",
@@ -164,7 +164,7 @@ app_ui = ui.page_navbar(
                     ui.p(
                         "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to visualizes signals and compute a huge set of variables. "
                         "The app features a Sidebar Layout that allows you to import a .csv file, set parameters, run analysis, create and download the .pdf report.\n"
-                        "The app has been developed for importing raw signals from the Microgate GykoPro sensor, but it can be adjusted for any IMU single sensor"
+                        "The app has been developed for importing raw signals from the Microgate GykoPro sensor, but it can be adjusted for any IMU single sensor. "
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
                     ),

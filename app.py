@@ -112,13 +112,12 @@ app_ui = ui.page_navbar(
         ui.card(
             ui.card_header("Running Mechanics & Metabolism Simulator"),
             ui.div(
-                # Top row: Leonardo image and link
                 ui.div(
                     ui.div(
-                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/QRcode_treadmill_model.png", style="width: 50%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);"),
+                        ui.HTML('<dotlottie-player src="Marathon.lottie" background="transparent" speed="1" autoplay loop style="width: 500px; height: auto;"></dotlottie-player>'),
                         ui.a(
-                            "Visit the Running Simulation App",
-                            href="https://tinyurl.com/mwzkrya8",
+                            "Visit the Running simulation app",
+                            href="https://danilobondi.github.io/TreadmillRunSimulator",
                             target="_blank",
                             style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"
                         ),
@@ -141,6 +140,41 @@ app_ui = ui.page_navbar(
             style="padding: 40px; min-height: 80vh;"
         )
     ),
+
+    ui.nav_panel(
+        "Gait analysis",
+        ui.card(
+            ui.card_header("Gait analysis from a single tri-axial accelerometer and gyroscope mounted on the lower back"),
+            ui.div(
+                ui.div(
+                    ui.div(
+                        ui.HTML('<dotlottie-player src="Marathon.lottie" background="transparent" speed="1" autoplay loop style="width: 500px; height: auto;"></dotlottie-player>'),
+                        ui.a(
+                            "Visit the Running simulation app",
+                            href="https://danilobondi.github.io/GaitAnalysis",
+                            target="_blank",
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"
+                        ),
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
+                    ),
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-bottom: 30px;"
+                ),
+                # Description text
+                ui.div(
+                    ui.p(
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to visualizes signals and compute a huge set of variables. "
+                        "The app features a Sidebar Layout that allows you to import a .csv file, set parameters, run analysis, create and download the .pdf report.\n"
+                        "The app has been developed for importing raw signals from the Microgate GykoPro sensor, but it can be adjusted for any IMU single sensor"
+                        "Enjoy it!",
+                        style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
+                    ),
+                    style="width: 100%; padding: 20px; background-color: #F5F5F5; border-radius: 10px; border-left: 4px solid #27AE60;"
+                ),
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; width: 100%;"
+            ),
+            style="padding: 40px; min-height: 80vh;"
+        )
+    ),    
     
     ui.nav_panel(
         "About",

@@ -116,7 +116,7 @@ app_ui = ui.page_navbar(
                     ui.div(
                         ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Marathon.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: auto;"></dotlottie-player>'),
                         ui.a(
-                            "Visit the Running simulation app",
+                            "Visit the Running simulation custom-built web app",
                             href="https://danilobondi.github.io/TreadmillRunSimulator",
                             target="_blank",
                             style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"
@@ -150,7 +150,7 @@ app_ui = ui.page_navbar(
                     ui.div(
                         ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Walking robot.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: auto;"></dotlottie-player>'),
                         ui.a(
-                            "Visit the Running simulation app",
+                            "Visit the Gait analysis custom-built web app",
                             href="https://danilobondi.github.io/GaitAnalysis",
                             target="_blank",
                             style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"

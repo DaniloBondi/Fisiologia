@@ -14,44 +14,22 @@ This repository contains a comprehensive web application built with **Shiny for 
 Explore how different tissue types generate electrical signals:
 - **Static Comparison**: Visualize action potentials across cardiac muscle, neurons, and skeletal muscle with customizable time windows
 - **Interactive Animation**: Generate and animate neuronal action potentials at different stimulus levels
-  - Sub-threshold stimulation (-60 mV)
-  - Above-threshold stimulation (-40 mV, +10 mV)
-  - Real-time threshold visualization
-
-**Key Physiological Details:**
-- **Cardiac**: Long plateau phase (200-300ms) preventing tetanic contractions
-- **Neuronal**: Rapid signals (1-2ms) enabling high-frequency firing
-- **Skeletal**: Intermediate duration (2-5ms) for muscle fiber propagation
 
 #### **Heart Rate (ECG Simulation)**
 Simulate and analyze cardiac electrical activity:
-- Customizable heart rate (30-230 bpm)
-- Heart Rate Variability (HRV) via SDNN parameter (0-100 ms)
+- Customizable heart rate
+- Heart Rate Variability
 - Adjustable time windows for signal analysis
 - Real-time statistics including RMSSD calculations
 
-**Advanced Model**: Uses autocorrelated noise to realistically model HRV:
-$$RMSSD \approx \sqrt{2 \cdot SDNN^2 \cdot (1 - r_1)}$$
-where r = 0.80 (based on literature)
-
 #### **Ventilation (Respiration Simulator)**
 Model respiratory mechanics:
-- Adjustable respiratory frequency (0-70 bpm)
-- Customizable tidal volume (0-3 L)
-- Flexible time windows (10-60 seconds)
+- Adjustable respiratory frequency, tidal volume and time windows
 - Real-time minute ventilation calculations
 
-#### **Running Simulation**
-Interactive biomechanics and metabolism simulator:
-- Explore relationships between running parameters and physiological responses
-- Access custom-built web app: [TreadmillRunSimulator](https://danilobondi.github.io/TreadmillRunSimulator)
-
-#### **Gait Analysis**
-Analyze human walking mechanics:
-- Process IMU sensor data (tri-axial accelerometer + gyroscope)
-- Integrated analysis from Microgate GyrkoPro or any compatible sensor
-- Generate comprehensive PDF reports
-- Access the tool: [GaitAnalysis](https://danilobondi.github.io/GaitAnalysis)
+#### **External links**
+- Running simulator: [TreadmillRunSimulator](https://danilobondi.github.io/TreadmillRunSimulator)
+- Gait analysis: [GaitAnalysis](https://danilobondi.github.io/GaitAnalysis)
 
 ---
 
@@ -61,26 +39,11 @@ Analyze human walking mechanics:
 - Python 3.8+
 - pip package manager
 
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
 ### Required Packages
 - **shiny**: Web framework for interactive Python applications
 - **numpy**: Numerical computations and signal processing
 - **plotly**: Interactive data visualization
 
-### Run the Application
-
-```bash
-shiny run app.py
-```
-
-The application will be available at `http://localhost:8000`
-
----
 
 ## 📁 Project Structure
 
@@ -114,14 +77,6 @@ Fisiologia/
 ---
 
 ## 📚 Educational Content
-
-### Physiological Simulations
-
-1. **Electrophysiology**: Generation and propagation of action potentials
-2. **Cardiology**: ECG signal interpretation and HRV analysis
-3. **Respiratory Physiology**: Breathing mechanics and ventilation modeling
-4. **Biomechanics**: Running mechanics and gait analysis
-5. **Signal Processing**: Real-time signal generation and analysis
 
 ### Use Cases
 
@@ -181,26 +136,6 @@ Developed and curated with the assistance of AI technologies to create engaging 
 4. **Open in browser**:
    Navigate to `http://localhost:8000` and explore the interactive simulations!
 
----
-
-## 💡 Tips for Learning
-
-- **Start with Action Potential**: Understand the basic principles of electrical signaling
-- **Explore Variability**: Use the HRV controls to understand heart rate variability concepts
-- **Experiment with Parameters**: Modify respiratory rate and tidal volume to see their effects on minute ventilation
-- **Compare Tissues**: Switch between different tissue types to observe physiological differences
-- **Analyze Animations**: Use play/pause controls to study detailed action potential dynamics
-
----
-
-## 🔬 For Researchers
-
-This application can be extended for research purposes:
-- Custom signal processing algorithms
-- Integration with real sensor data
-- Statistical analysis tools
-- Data export capabilities
-- Multi-subject comparative analysis
 
 ---
 

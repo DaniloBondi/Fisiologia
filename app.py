@@ -183,7 +183,7 @@ app_ui = ui.page_navbar(
             ui.div(
                 ui.div(
                     ui.div(
-                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Walking robot.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: auto;"></dotlottie-player>'),
+                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Jumping.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: auto;"></dotlottie-player>'),
                         ui.a(
                             "Visit the Vertical jump custom-built web app",
                             href="https://danilobondi.github.io/VerticalJumpSimulator",

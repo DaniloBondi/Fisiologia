@@ -129,7 +129,7 @@ app_ui = ui.page_navbar(
                 ui.div(
                     ui.p(
                         "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the relationship between running mechanics, biomechanics, and metabolic parameters. "
-                        "The app features a Sidebar Layout that allows you to manipulate parameters across distinct physiological and biomechanical domains via the sidebar.\n"
+                        "The app features a Sidebar Layout that allows you to manipulate parameters across distinct physiological and biomechanical domains.\n"
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
                     ),
@@ -165,6 +165,40 @@ app_ui = ui.page_navbar(
                         "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to visualizes signals and compute a huge set of variables. "
                         "The app features a Sidebar Layout that allows you to import a .csv file, set parameters, run analysis, create and download the .pdf report.\n"
                         "The app has been developed for importing raw signals from the Microgate GykoPro sensor, but it can be adjusted for any IMU single sensor. "
+                        "Enjoy it!",
+                        style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
+                    ),
+                    style="width: 100%; padding: 20px; background-color: #F5F5F5; border-radius: 10px; border-left: 4px solid #27AE60;"
+                ),
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; width: 100%;"
+            ),
+            style="padding: 40px; min-height: 80vh;"
+        )
+    ),    
+
+    ui.nav_panel(
+        "Vertical jump",
+        ui.card(
+            ui.card_header("Vertical jump simulator & power analysis"),
+            ui.div(
+                ui.div(
+                    ui.div(
+                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Walking robot.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: auto;"></dotlottie-player>'),
+                        ui.a(
+                            "Visit the Vertical jump custom-built web app",
+                            href="https://danilobondi.github.io/VerticalJumpSimulator",
+                            target="_blank",
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"
+                        ),
+                        style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
+                    ),
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-bottom: 30px;"
+                ),
+                # Description text
+                ui.div(
+                    ui.p(
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the single vertical jump and running power analysis from multiple loaded jumps "
+                        "The app features a Sidebar Layout that allows you to manipulate parameters across loads and jumping heights \n"
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
                     ),

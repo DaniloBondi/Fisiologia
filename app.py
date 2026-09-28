@@ -43,7 +43,7 @@ app_ui = ui.page_navbar(
                 ui.div(
                     ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/lung.lottie" background="transparent" speed="2" autoplay loop style="width: 160px; height: auto;"></dotlottie-player>'),
                     ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Health care.lottie" background="transparent" speed="1" autoplay loop style="width: 130px; height: auto;"></dotlottie-player>'),
-                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/working brain.lottie" background="transparent" speed="1" autoplay loop style="width: 110px; height: auto;"></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/working brain.lottie" background="transparent" speed="1" autoplay loop style="width: 130px; height: auto;"></dotlottie-player>'),
                     style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 0; gap: 10px;"
                 ),
                 style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 40px; width: 100%; max-width: 1100px; margin: 0 auto;"
@@ -119,7 +119,7 @@ app_ui = ui.page_navbar(
                             "Visit the Running simulation custom-built web app",
                             href="https://danilobondi.github.io/TreadmillRunSimulator",
                             target="_blank",
-                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: all 0.3s ease;"
                         ),
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
                     ),
@@ -128,7 +128,7 @@ app_ui = ui.page_navbar(
                 # Description text
                 ui.div(
                     ui.p(
-                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the relationship between running mechanics, biomechanics, and metabolic parameters. "
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the relationship between biomechanical and physiological variables during running. "
                         "The app features a Sidebar Layout that allows you to manipulate parameters across distinct physiological and biomechanical domains.\n"
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
@@ -153,7 +153,7 @@ app_ui = ui.page_navbar(
                             "Visit the Gait analysis custom-built web app",
                             href="https://danilobondi.github.io/GaitAnalysis",
                             target="_blank",
-                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: all 0.3s ease;"
                         ),
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
                     ),
@@ -162,7 +162,7 @@ app_ui = ui.page_navbar(
                 # Description text
                 ui.div(
                     ui.p(
-                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to visualizes signals and compute a huge set of variables. "
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to visualizes signals and compute a huge set of variables for gait analysis. "
                         "The app features a Sidebar Layout that allows you to import a .csv file, set parameters, run analysis, create and download the .pdf report.\n"
                         "The app has been developed for importing raw signals from the Microgate GykoPro sensor, but it can be adjusted for any IMU single sensor. "
                         "Enjoy it!",
@@ -188,7 +188,7 @@ app_ui = ui.page_navbar(
                             "Visit the Vertical jump custom-built web app",
                             href="https://danilobondi.github.io/VerticalJumpSimulator",
                             target="_blank",
-                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: all 0.3s ease;"
                         ),
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
                     ),
@@ -197,7 +197,7 @@ app_ui = ui.page_navbar(
                 # Description text
                 ui.div(
                     ui.p(
-                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the single vertical jump and running power analysis from multiple loaded jumps "
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the single vertical jump performance. "
                         "The app features a Sidebar Layout that allows you to manipulate parameters across loads and jumping heights \n"
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
@@ -222,7 +222,7 @@ app_ui = ui.page_navbar(
                             "Visit the Biological maturation custom-built web app",
                             href="https://danilobondi.github.io/BiologicalMaturation",
                             target="_blank",
-                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8;"
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: all 0.3s ease;"
                         ),
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
                     ),
@@ -231,7 +231,7 @@ app_ui = ui.page_navbar(
                 # Description text
                 ui.div(
                     ui.p(
-                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to compute peak height velocity, maturity ratio, maturity offset, predicted adult height and percent of final height "
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to compute peak height velocity, maturity ratio, maturity offset and biological age. "
                         "The app features a Sidebar Layout that allows you to manipulate parameters across anthropometric features \n"
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
@@ -243,6 +243,57 @@ app_ui = ui.page_navbar(
             style="padding: 40px; min-height: 80vh;"
         )
     ),    
+
+    ui.nav_panel(
+        "Resources",
+        ui.card(
+            ui.card_header("Useful Resources for Exercise Physiology"),
+            ui.div(
+                ui.div(
+                    ui.h3("Recommended Tools and Services", style="color: #2C3E50; margin-bottom: 30px;"),
+                    # Resource 1: Exercise Physiology Lab
+                    ui.div(
+                        ui.div(
+                            ui.h4("Exercise Physiology Lab", style="color: #2E86AB; margin-bottom: 10px;"),
+                            ui.p(
+                                "Online and free Exercise Physiology Lab assistant constituted by an interesting set of tools",
+                                style="font-size: 1.1rem; color: #5D6D7E; margin-bottom: 15px;"
+                            ),
+                            ui.a(
+                                "Visit Exercise Physiology Lab →",
+                                href="https://www.exphyslab.com/",
+                                target="_blank",
+                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;"
+                            ),
+                            style="padding: 20px; background-color: #F9F9F9; border-left: 4px solid #2E86AB; border-radius: 6px; margin-bottom: 20px;"
+                        ),
+                        style="width: 100%;"
+                    ),
+                    # Resource 2: Oxynet
+                    ui.div(
+                        ui.div(
+                            ui.h4("Oxynet", style="color: #2E86AB; margin-bottom: 10px;"),
+                            ui.p(
+                                "Free AI-powered tool that interprets cardiopulmonary exercise test signals",
+                                style="font-size: 1.1rem; color: #5D6D7E; margin-bottom: 15px;"
+                            ),
+                            ui.a(
+                                "Visit Oxynet →",
+                                href="https://app.oxynet.net/",
+                                target="_blank",
+                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;"
+                            ),
+                            style="padding: 20px; background-color: #F9F9F9; border-left: 4px solid #2E86AB; border-radius: 6px; margin-bottom: 20px;"
+                        ),
+                        style="width: 100%;"
+                    ),
+                    style="padding: 30px; max-width: 900px; margin: 0 auto;"
+                ),
+                style="display: flex; flex-direction: column; align-items: stretch; gap: 20px; width: 100%;"
+            ),
+            style="padding: 40px; min-height: 60vh;"
+        )
+    ),
     
     ui.nav_panel(
         "About",

@@ -37,13 +37,13 @@ app_ui = ui.page_navbar(
             ui.h1("Human physiology can be cool", style="margin-bottom: 40px; font-weight: 700; color: #2C3E50;"),
             ui.div(
                 ui.div(
-                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.[...]
+                    ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Leonardo.png", style="width: 60%; height: auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);"),
                     style="flex: 2; max-width: 600px; display: flex; align-items: center; justify-content: center;"
                 ),
                 ui.div(
-                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/lung.lottie" background="transparent" speed="2" autoplay loop style="width: 160px; hei[...]
-                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Health care.lottie" background="transparent" speed="1" autoplay loop style="width: 130[...]
-                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/working brain.lottie" background="transparent" speed="1" autoplay loop style="width: 1[...]
+                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/lung.lottie" background="transparent" speed="2" autoplay loop style="width: 160px; height: 160px;"></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Health care.lottie" background="transparent" speed="1" autoplay loop style="width: 130px; height: 130px;"></dotlottie-player>'),
+                    ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/working brain.lottie" background="transparent" speed="1" autoplay loop style="width: 160px; height: 160px;"></dotlottie-player>'),
                     style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 0; gap: 10px;"
                 ),
                 style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 40px; width: 100%; max-width: 1100px; margin: 0 auto;"
@@ -133,12 +133,12 @@ app_ui = ui.page_navbar(
             ui.div(
                 ui.div(
                     ui.div(
-                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Marathon.lottie" background="transparent" speed="1" autoplay loop style="width: 40[...]
+                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Marathon.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: 400px;"></dotlottie-player>'),
                         ui.a(
                             "Visit the Running simulation custom-built web app",
                             href="https://danilobondi.github.io/TreadmillRunSimulator",
                             target="_blank",
-                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; backg[...]
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: all 0.3s ease;"
                         ),
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
                     ),
@@ -147,7 +147,7 @@ app_ui = ui.page_navbar(
                 # Description text
                 ui.div(
                     ui.p(
-                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the relationship bet[...]
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the relationship between running biomechanics, metabolism, and performance. "
                         "The app features a Sidebar Layout that allows you to manipulate parameters across distinct physiological and biomechanical domains.\n"
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
@@ -167,12 +167,12 @@ app_ui = ui.page_navbar(
             ui.div(
                 ui.div(
                     ui.div(
-                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Walking robot.lottie" background="transparent" speed="1" autoplay loop style="widt[...]
+                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Walking robot.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: 400px;"></dotlottie-player>'),
                         ui.a(
                             "Visit the Gait analysis custom-built web app",
                             href="https://danilobondi.github.io/GaitAnalysis",
                             target="_blank",
-                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; backg[...]
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: all 0.3s ease;"
                         ),
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
                     ),
@@ -181,7 +181,7 @@ app_ui = ui.page_navbar(
                 # Description text
                 ui.div(
                     ui.p(
-                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to visualizes signals and compute a huge set of var[...]
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to visualizes signals and compute a huge set of variables for your analysis. "
                         "The app features a Sidebar Layout that allows you to import a .csv file, set parameters, run analysis, create and download the .pdf report.\n"
                         "The app has been developed for importing raw signals from the Microgate GykoPro sensor, but it can be adjusted for any IMU single sensor. "
                         "Enjoy it!",
@@ -202,12 +202,12 @@ app_ui = ui.page_navbar(
             ui.div(
                 ui.div(
                     ui.div(
-                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Jumping.lottie" background="transparent" speed="1" autoplay loop style="width: 400[...]
+                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Jumping.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: 400px;"></dotlottie-player>'),
                         ui.a(
                             "Visit the Vertical jump custom-built web app",
                             href="https://danilobondi.github.io/VerticalJumpSimulator",
                             target="_blank",
-                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; backg[...]
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: all 0.3s ease;"
                         ),
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
                     ),
@@ -216,7 +216,7 @@ app_ui = ui.page_navbar(
                 # Description text
                 ui.div(
                     ui.p(
-                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the single vertical [...]
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an interactive simulator for academic purposes to estimate and analyze the single vertical jump performance. "
                         "The app features a Sidebar Layout that allows you to manipulate parameters across loads and jumping heights \n"
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
@@ -236,12 +236,12 @@ app_ui = ui.page_navbar(
             ui.div(
                 ui.div(
                     ui.div(
-                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Growth.lottie" background="transparent" speed="1" autoplay loop style="width: 400p[...]
+                        ui.HTML('<dotlottie-player src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/Growth.lottie" background="transparent" speed="1" autoplay loop style="width: 400px; height: 400px;"></dotlottie-player>'),
                         ui.a(
                             "Visit the Biological maturation custom-built web app",
                             href="https://danilobondi.github.io/BiologicalMaturation",
                             target="_blank",
-                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; backg[...]
+                            style="font-size: 1.8rem; font-weight: 600; color: #2E86AB; text-decoration: none; margin-bottom: 20px; display: inline-block; padding: 10px 20px; border-radius: 8px; background-color: #E8F4F8; transition: all 0.3s ease;"
                         ),
                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;"
                     ),
@@ -250,7 +250,7 @@ app_ui = ui.page_navbar(
                 # Description text
                 ui.div(
                     ui.p(
-                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to compute peak height velocity, maturity ratio, ma[...]
+                        "The link pushes you to a web application built using Shiny for Python: it serves as an analyzing tool for research purposes to compute peak height velocity, maturity ratio, maturity status and more. "
                         "The app features a Sidebar Layout that allows you to manipulate parameters across anthropometric features \n"
                         "Enjoy it!",
                         style="font-size: 1.1rem; line-height: 1.6; color: #2C3E50; text-align: left; max-width: 800px; margin: 0 auto;"
@@ -282,7 +282,7 @@ app_ui = ui.page_navbar(
                                 "Visit Exercise Physiology Lab →",
                                 href="https://www.exphyslab.com/",
                                 target="_blank",
-                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: back[...]
+                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;"
                             ),
                             style="padding: 20px; background-color: #F9F9F9; border-left: 4px solid #2E86AB; border-radius: 6px; margin-bottom: 20px;"
                         ),
@@ -300,7 +300,7 @@ app_ui = ui.page_navbar(
                                 "Visit Oxynet →",
                                 href="https://app.oxynet.net/",
                                 target="_blank",
-                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: back[...]
+                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;"
                             ),
                             style="padding: 20px; background-color: #F9F9F9; border-left: 4px solid #2E86AB; border-radius: 6px; margin-bottom: 20px;"
                         ),
@@ -318,7 +318,7 @@ app_ui = ui.page_navbar(
                                 "Visit MetaboliSim →",
                                 href="https://metabolisim.org/",
                                 target="_blank",
-                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: back[...]
+                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;"
                             ),
                             style="padding: 20px; background-color: #F9F9F9; border-left: 4px solid #2E86AB; border-radius: 6px; margin-bottom: 20px;"
                         ),
@@ -352,7 +352,7 @@ app_ui = ui.page_navbar(
                         style="flex: 1; padding-right: 30px;"
                     ),
                     ui.div(
-                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 800px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2[...]
+                        ui.img(src="https://raw.githubusercontent.com/DaniloBondi/Fisiologia/main/AI.png", style="width: 800px; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"),
                         style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;"
                     ),
                     style="display: flex; flex-direction: row; align-items: flex-start; gap: 30px; width: 100%; margin-bottom: 40px;"

@@ -306,7 +306,25 @@ app_ui = ui.page_navbar(
                         ),
                         style="width: 100%;"
                     ),
-                    # Resource 3: MetaboliSim
+                    # Resource 3: OpenHDEMG
+                    ui.div(
+                        ui.div(
+                            ui.h4("openhdemg", style="color: #2E86AB; margin-bottom: 10px;"),
+                            ui.p(
+                                "Free web software tool for motor unit analysis from High-Density surface Electromyography",
+                                style="font-size: 1.1rem; color: #5D6D7E; margin-bottom: 15px;"
+                            ),
+                            ui.a(
+                                "Visit openhdemg →",
+                                href="https://www.giacomovalli.com/openhdemg_software/",
+                                target="_blank",
+                                style="display: inline-block; padding: 10px 20px; background-color: #2E86AB; color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: background-color 0.3s ease;"
+                            ),
+                            style="padding: 20px; background-color: #F9F9F9; border-left: 4px solid #2E86AB; border-radius: 6px; margin-bottom: 20px;"
+                        ),
+                        style="width: 100%;"
+                    ),
+                    # Resource 4: MetaboliSim
                     ui.div(
                         ui.div(
                             ui.h4("MetaboliSim", style="color: #2E86AB; margin-bottom: 10px;"),

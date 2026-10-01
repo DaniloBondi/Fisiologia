@@ -311,7 +311,7 @@ app_ui = ui.page_navbar(
                         ui.div(
                             ui.h4("openhdemg", style="color: #2E86AB; margin-bottom: 10px;"),
                             ui.p(
-                                "Free web software tool for motor unit analysis from High-Density surface Electromyography",
+                                "Free software for motor unit analysis from High-Density surface Electromyography",
                                 style="font-size: 1.1rem; color: #5D6D7E; margin-bottom: 15px;"
                             ),
                             ui.a(

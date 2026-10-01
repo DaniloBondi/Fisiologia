@@ -346,7 +346,7 @@ app_ui = ui.page_navbar(
                 ),
                 style="display: flex; flex-direction: column; align-items: stretch; gap: 20px; width: 100%;"
             ),
-            style="padding: 40px; overflow-y: auto; max-height: 85vh;"
+            style="padding: 40px; overflow-y: auto; max-height: none;"
         )
     ),
     
